@@ -21,7 +21,6 @@ class Onboarding extends StatelessWidget {
             ),
             const SizedBox(height: 24),
 
-            // Teks utama
             const Text(
               'We deliver vegetables and fruits to your door',
               textAlign: TextAlign.center,
@@ -33,7 +32,6 @@ class Onboarding extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
-            // Teks deskripsi
             const Text(
               'The store offers you fresh vegetables and fruits. Order new items from the store.',
               textAlign: TextAlign.center,
@@ -44,7 +42,6 @@ class Onboarding extends StatelessWidget {
             ),
             const SizedBox(height: 32),
 
-            // Tombol "Get Started"
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
