@@ -148,13 +148,13 @@ final List<FavoriteItem> favoriteItems = [
   FavoriteItem(
       title: "Strawberry",
       assetPath: "assets/images/STR.jpg",
-      pricePerKg: 56000),
+      pricePerKg: 1200),
   FavoriteItem(
-      title: "Carrot", assetPath: "assets/images/cr.jpg", pricePerKg: 8500),
+      title: "Carrot", assetPath: "assets/images/cr.jpg", pricePerKg: 2500),
   FavoriteItem(
       title: "Pineapple",
       assetPath: "assets/images/pnl.jpg",
-      pricePerKg: 56000),
+      pricePerKg: 12000),
   FavoriteItem(
-      title: "Orange", assetPath: "assets/images/Jeruk.jpg", pricePerKg: 50000),
+      title: "Orange", assetPath: "assets/images/Jeruk.jpg", pricePerKg: 1000),
 ];
