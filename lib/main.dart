@@ -5,6 +5,7 @@ import 'package:myapp/Login.dart';
 import 'package:myapp/sign_up.dart';
 //import 'package:myapp/homescreen.dart';
 import 'package:myapp/buy.dart';
+import 'package:myapp/notif.dart';
 
 void main() {
   runApp(const MyApp());
