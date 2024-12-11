@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'login.dart'; // Sesuaikan path jika file login.dart berada di folder lain
+// import 'package:myapp/login.dart';
+import 'package:myapp/onboarding.dart';
+import 'package:myapp/Login.dart';
+import 'package:myapp/sign_up.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginScreen(), // Pastikan LoginScreen sesuai
+      home: const Onboarding(), // Pastikan LoginScreen sesuai
     );
   }
 }
