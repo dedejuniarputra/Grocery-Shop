@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'homescreen.dart'; // Pastikan Anda mengganti dengan path file HomeScreen Anda
+import 'homescreen.dart'; 
+import 'notif.dart'; 
 
 class BuyScreen extends StatefulWidget {
   const BuyScreen({Key? key}) : super(key: key);
@@ -107,9 +108,7 @@ class _BuyScreenState extends State<BuyScreen> {
                 ),
                 const Spacer(),
                 TextButton(
-                  onPressed: () {
-                    // Handle delete action
-                  },
+                  onPressed: () {},
                   child: const Text(
                     'Delete',
                     style: TextStyle(color: Colors.red),
@@ -194,7 +193,12 @@ class _BuyScreenState extends State<BuyScreen> {
                   child: ElevatedButton(
                     onPressed: selectedItemsCount > 0
                         ? () {
-                            // Handle checkout
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NotifScreen(),
+                              ),
+                            );
                           }
                         : null,
                     style: ElevatedButton.styleFrom(
