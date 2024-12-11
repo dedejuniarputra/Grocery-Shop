@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'homescreen.dart'; 
-import 'notif.dart'; 
+import 'homescreen.dart';
+import 'notif.dart';
 
 class BuyScreen extends StatefulWidget {
-  const BuyScreen({Key? key}) : super(key: key);
+  const BuyScreen({super.key});
 
   @override
   State<BuyScreen> createState() => _BuyScreenState();
@@ -14,24 +14,27 @@ class _BuyScreenState extends State<BuyScreen> {
     Product(
       name: 'Orange',
       category: 'Fruit',
-      price: 9999,
-      image: 'https://cdn.loveandlemons.com/wp-content/uploads/2021/04/green-salad-500x375.jpg',
+      price: 1000,
+      image:
+          'https://cdn.rri.co.id/berita/Meulaboh/o/1716519232240-088313600_1575367571-jeruk-sunkist/9cfotvsvf13pj66.webp',
       quantity: 1,
       isSelected: true,
     ),
     Product(
       name: 'Strawberry',
       category: 'Fruit',
-      price: 7999,
-      image: 'https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/ayobandung/bank_image/medium/5-resep-salad-sayur-untuk-diet-enak-dan-tetap-bergizi.jpg',
+      price: 1200,
+      image:
+          'https://res.cloudinary.com/dk0z4ums3/image/upload/v1721267732/attached_image/strawberry-inilah-kandungan-nutrisi-dan-manfaatnya.jpg',
       quantity: 1,
       isSelected: true,
     ),
     Product(
       name: 'Carrot',
       category: 'Vegetable',
-      price: 8999,
-      image: 'https://res.cloudinary.com/dk0z4ums3/image/upload/v1721267732/attached_image/strawberry-inilah-kandungan-nutrisi-dan-manfaatnya.jpg',
+      price: 2500,
+      image:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAfkBmYDd4FYMT19HdDQ3ST5MDIHAkD-MiQg&s',
       quantity: 1,
       isSelected: false,
     ),
@@ -39,7 +42,8 @@ class _BuyScreenState extends State<BuyScreen> {
       name: 'Pineapple',
       category: 'Fruit',
       price: 12000,
-      image: 'https://www.healthxchange.sg/sites/hexassets/Assets/food-nutrition/pineapple-health-benefits-and-ways-to-enjoy.jpg',
+      image:
+          'https://www.healthxchange.sg/sites/hexassets/Assets/food-nutrition/pineapple-health-benefits-and-ways-to-enjoy.jpg',
       quantity: 1,
       isSelected: false,
     ),
@@ -154,9 +158,9 @@ class _BuyScreenState extends State<BuyScreen> {
             ),
             child: Column(
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text(
                       'Delivery',
                       style: TextStyle(fontSize: 16),
@@ -196,7 +200,7 @@ class _BuyScreenState extends State<BuyScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => NotifScreen(),
+                                builder: (context) => const NotifScreen(),
                               ),
                             );
                           }
@@ -212,6 +216,7 @@ class _BuyScreenState extends State<BuyScreen> {
                       'Check Out ( $selectedItemsCount )',
                       style: const TextStyle(
                         fontSize: 16,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -250,11 +255,11 @@ class ProductCard extends StatelessWidget {
   final ValueChanged<bool?> onSelectionChanged;
 
   const ProductCard({
-    Key? key,
+    super.key,
     required this.product,
     required this.onQuantityChanged,
     required this.onSelectionChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

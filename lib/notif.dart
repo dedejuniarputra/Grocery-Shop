@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'homescreen.dart';
 
 class NotifScreen extends StatelessWidget {
-  const NotifScreen({Key? key}) : super(key: key);
+  const NotifScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
