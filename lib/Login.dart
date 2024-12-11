@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/onboarding.dart';
+import 'package:myapp/homescreen.dart';
 import 'package:myapp/sign_up.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,7 +13,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool isPasswordVisible = false;
-  bool isFormValid = false;
+  bool isEmailValid = true;
+  bool isPasswordValid = true;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +42,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 24),
-                
-                // Login Text
                 const Text(
                   'Log In',
                   style: TextStyle(
@@ -52,8 +51,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                
-                // Welcome Text
                 Text(
                   'Welcome Back! Log in with your details',
                   style: TextStyle(
@@ -62,11 +59,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 24),
-                
-                // Email TextField
                 TextField(
                   controller: emailController,
-                  onChanged: (value) => _validateForm(),
+                  onChanged: (value) {
+                    setState(() {
+                      isEmailValid = value.isNotEmpty;
+                    });
+                  },
                   style: const TextStyle(fontSize: 14),
                   decoration: InputDecoration(
                     labelText: 'Email or Username',
@@ -81,21 +80,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: Colors.grey[300]!),
+                      borderSide: BorderSide(
+                          color: isEmailValid ? Colors.grey[300]! : Colors.red),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Color(0xFF4CAF50)),
+                      borderSide: BorderSide(
+                          color: isEmailValid ? const Color(0xFF4CAF50) : Colors.red),
                     ),
                   ),
                 ),
                 const SizedBox(height: 16),
-                
-                // Password TextField
                 TextField(
                   controller: passwordController,
                   obscureText: !isPasswordVisible,
-                  onChanged: (value) => _validateForm(),
+                  onChanged: (value) {
+                    setState(() {
+                      isPasswordValid = value.isNotEmpty;
+                    });
+                  },
                   style: const TextStyle(fontSize: 14),
                   decoration: InputDecoration(
                     labelText: 'Password',
@@ -110,11 +113,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: Colors.grey[300]!),
+                      borderSide: BorderSide(
+                          color: isPasswordValid ? Colors.grey[300]! : Colors.red),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Color(0xFF4CAF50)),
+                      borderSide: BorderSide(
+                          color: isPasswordValid ? const Color(0xFF4CAF50) : Colors.red),
                     ),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -131,19 +136,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 24),
-                
-                // Login Button
                 SizedBox(
                   width: double.infinity,
                   height: 48,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (emailController.text.isNotEmpty && 
-                          passwordController.text.isNotEmpty) {
+                      setState(() {
+                        isEmailValid = emailController.text.isNotEmpty;
+                        isPasswordValid = passwordController.text.isNotEmpty;
+                      });
+
+                      if (isEmailValid && isPasswordValid) {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Onboarding(),
+                            builder: (context) => HomeScreen(),
                           ),
                         );
                       }
@@ -166,8 +173,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(height: 16),
-                
-                // SIGNUP
                 Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -206,12 +211,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  void _validateForm() {
-    setState(() {
-      isFormValid = emailController.text.isNotEmpty && 
-                    passwordController.text.isNotEmpty;
-    });
   }
 }
