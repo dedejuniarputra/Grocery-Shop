@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const ProfileScreen()), // Navigasi ke ProfileScreen
+              MaterialPageRoute(builder: (context) =>  ProfileScreen()), // Navigasi ke ProfileScreen
             );
           },
         ),
