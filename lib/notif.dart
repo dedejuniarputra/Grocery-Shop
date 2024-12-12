@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Delivery.dart';
 import 'homescreen.dart';
 
 class NotifScreen extends StatelessWidget {
@@ -65,7 +66,7 @@ class NotifScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) => DeliveryStatus()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -81,7 +82,7 @@ class NotifScreen extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Continue shopping',
+                  'Check Location',
                   style: TextStyle(
                     fontSize: 16,
                   ),

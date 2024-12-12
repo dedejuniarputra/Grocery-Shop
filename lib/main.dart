@@ -5,6 +5,7 @@ import 'package:myapp/homescreen.dart';
 import 'package:myapp/buy.dart';
 import 'package:myapp/notif.dart';
 import 'package:myapp/favorite.dart';
+import 'package:myapp/Delivery.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Onboarding(),
+      home:  DeliveryStatus(),
     );
   }
 }
