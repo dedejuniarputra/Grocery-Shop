@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'buy.dart';
 import 'notif.dart';
 import 'favorite.dart';
+import 'profile.dart'; // Tambahkan impor untuk profile.dart
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,7 +16,12 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.menu, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProfileScreen()), // Navigasi ke ProfileScreen
+            );
+          },
         ),
         actions: [
           IconButton(
