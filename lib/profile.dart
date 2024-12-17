@@ -14,40 +14,51 @@ class ProfileScreen extends StatelessWidget {
             color: Colors.green,
             padding: EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CircleAvatar(
                   radius: 40,
-                  backgroundImage: AssetImage('assets/profile_image.png'), // Ganti dengan path gambar yang baru
+                  backgroundImage: AssetImage('assets/images/profile.jpg'),
                 ),
                 SizedBox(width: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Welcome',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
-                    Text(
-                      'Amr Elmadawy',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Welcome',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                      Text(
+                        'Dede Juniar Putra',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 8),
+                SizedBox(
+                  height: 36, // Atur tinggi tombol
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.green,
+                      minimumSize: Size(90, 36),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
                       ),
                     ),
-                  ],
-                ),
-                Spacer(),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                    child: Text(
+                      'Edit',
+                      style: TextStyle(fontSize: 14),
                     ),
                   ),
-                  child: Text('Edit Profile'),
                 ),
               ],
             ),
@@ -56,13 +67,12 @@ class ProfileScreen extends StatelessWidget {
             child: ListView(
               children: [
                 buildListTile(Icons.settings, 'Settings', context),
-                buildListTile(Icons.account_balance_wallet, 'My Wallet', context),
-                buildListTile(Icons.location_on, 'Location', context),
+                buildListTile(
+                    Icons.account_balance_wallet, 'My Wallet', context),
                 buildListTile(Icons.language, 'Language', context),
                 buildListTile(Icons.help_outline, 'Get help', context),
                 buildSwitchTile(Icons.notifications, 'Notification'),
                 buildSwitchTile(Icons.dark_mode, 'Dark Mode'),
-                buildListTile(Icons.support, 'Support', context),
                 ListTile(
                   leading: Icon(Icons.logout, color: Colors.red),
                   title: Text('Log out', style: TextStyle(color: Colors.red)),
